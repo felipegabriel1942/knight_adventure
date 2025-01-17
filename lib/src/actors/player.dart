@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
 import 'package:flutter/services.dart';
@@ -19,8 +20,6 @@ class Player extends SpriteAnimationGroupComponent
 
   @override
   FutureOr<void> onLoad() {
-    debugMode = true;
-
     final spriteSheet = SpriteSheet(
       image: game.images.fromCache('knight.png'),
       srcSize: Vector2.all(32.0),
@@ -41,6 +40,15 @@ class Player extends SpriteAnimationGroupComponent
     };
 
     current = PlayerState.idle;
+
+    add(
+      RectangleHitbox(
+        position: Vector2(8, 10),
+        size: Vector2(14, 18),
+      ),
+    );
+
+    debugMode = true;
 
     return super.onLoad();
   }
