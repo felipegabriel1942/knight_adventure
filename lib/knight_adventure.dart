@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flame/components.dart';
+import 'package:flame/experimental.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:knight_adventure/src/actors/player.dart';
@@ -25,8 +26,8 @@ class KnightAdventure extends FlameGame with HasKeyboardHandlerComponents {
     );
 
     camera.viewfinder.anchor = const Anchor(0.2, 0.6);
-
     camera.follow(player);
+    camera.setBounds(Rectangle.fromLTRB(64, 0, 256, 160));
 
     addAll([camera, world]);
 

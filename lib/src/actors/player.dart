@@ -19,7 +19,6 @@ class Player extends SpriteAnimationGroupComponent
 
   @override
   FutureOr<void> onLoad() {
-    // anchor = Anchor.center;
     debugMode = true;
 
     final spriteSheet = SpriteSheet(
